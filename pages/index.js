@@ -8,7 +8,7 @@ import utilStyle from '../styles/utils.module.css';
 // ssg
 export async function getStaticProps() {
   const allPostsData = getPostsData();
-  console.log(allPostsData);
+  //console.log(allPostsData);
 
   return {
     props: {
@@ -26,62 +26,18 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyle.headingMd} ${utilStyle.padding1px}`}>
         <h2>🐟 My First Blog</h2>
         <div className={styles.grid}>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                className={styles.thumbnailImage}
-                alt=""
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>SSG or SSR ?</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>Feb. 06, 2020</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                className={styles.thumbnailImage}
-                alt=""
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>SSG or SSR ?</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>Feb. 06, 2020</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                className={styles.thumbnailImage}
-                alt=""
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>SSG or SSR ?</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>Feb. 06, 2020</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                className={styles.thumbnailImage}
-                alt=""
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>SSG or SSR ?</a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>Feb. 06, 2020</small>
-          </article>
+          {allPostsData.map(({ id, title, date, thumbnail }) => (
+            <article key={id}>
+              <Link href={`/posts/${id}`}>
+                <img src={`${thumbnail}`} className={styles.thumbnailImage} />
+              </Link>
+              <Link href={`/posts/${id}`}>
+                <a className={utilStyle.boldText}>{title}</a>
+              </Link>
+              <br />
+              <small className={utilStyle.lightText}>{date}</small>
+            </article>
+          ))}
         </div>
       </section>
     </Layout>
