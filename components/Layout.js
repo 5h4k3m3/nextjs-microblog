@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './layout.module.css';
+import utilStyles from '../styles/utils.module.css';
 
 const name = 'Salmon Fillet';
 export const siteTitle = 'Next.js blog';
@@ -11,8 +12,8 @@ export const Layout = ({ chilidrem }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.header}>
-        <img src="/images/profile.png" />
-        <h1>{name}</h1>
+        <img className={utilStyles.borderCircle} src="/images/profile.png" />
+        <h1 className={utilStyles.heading2Xl}>{name}</h1>
       </header>
       <main>{chilidrem}</main>
     </div>
