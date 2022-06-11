@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.css';
 const name = 'Salmon Fillet';
 export const siteTitle = 'Next.js blog';
 
-export const Layout = ({ chilidrem }) => {
+export const Layout = ({ children }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +15,7 @@ export const Layout = ({ chilidrem }) => {
         <img className={utilStyles.borderCircle} src="/images/profile.png" />
         <h1 className={utilStyles.heading2Xl}>{name}</h1>
       </header>
-      <main>{chilidrem}</main>
+      <main>{children}</main>
     </div>
   );
 };
