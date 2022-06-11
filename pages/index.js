@@ -1,10 +1,23 @@
 import Link from 'next/link';
 
 import { Layout } from '../components/Layout';
+import { getPostsData } from '../lib/post';
 import styles from '../styles/Home.module.css';
 import utilStyle from '../styles/utils.module.css';
 
-export default function Home() {
+// ssg
+export async function getStaticProps() {
+  const allPostsData = getPostsData();
+  console.log(allPostsData);
+
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({ allPostsData }) {
   return (
     <Layout>
       <section>
