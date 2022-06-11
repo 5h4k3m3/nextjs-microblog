@@ -17,6 +17,15 @@ export async function getStaticProps() {
   };
 }
 
+// ssr
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      // return props
+    },
+  };
+}
+
 export default function Home({ allPostsData }) {
   return (
     <Layout>
