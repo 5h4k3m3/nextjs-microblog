@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: false,
+    fallback: false, // false: return 404, true: automatically create page
   };
 }
 
